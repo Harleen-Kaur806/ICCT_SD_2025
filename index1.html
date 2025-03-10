@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICCT-SD-2025 | GNDEC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            scroll-behavior: smooth;
+            position: relative;
+            color: #fff; 
+
+            
+        }
+        .custom-header {
+            background: #98adeb;
+            padding: 20px 5%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Ensures responsiveness */
+            gap: 10px;
+        }
+
+        .header-logo-container {
+            width: 12vw; /* Maintain responsiveness */
+            height: auto; /* Adjust height dynamically */
+            max-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo-container img {
+            width: 100%;
+            height: auto; /* Ensures no cropping */
+            object-fit: contain; /* Shows full logo */
+            border-radius: 50%;
+            border: 3px;
+        }
+
+    
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .custom-header h1 {
+            font-size: 2.8rem;
+        }
+
+        .custom-header h2 {
+            font-size: 1.4rem;
+            color: rgb(243, 85, 85);
+        }
+
+        .custom-header h3 {
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .custom-header {
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            .header-logo-container {
+                width: 20vw;
+                height: 20vw;
+            }
+
+
+            .custom-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .custom-header h2 {
+                font-size: 1rem;
+            }
+
+            .custom-header h3 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .section {
+            padding: 90px 20px;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-nav .nav-link {
+            position: relative;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(30, 144, 255, 0.8); /* Dodger Blue */
+            color: white;
+            box-shadow: 0px 4px 10px rgba(30, 144, 255, 0.5);
+            transform: scale(1.05);
+        }
+        .home-section{
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
+            min-height: auto;  
+            padding: 60px 0;
+            
+            
+        }
+        .home-content{
+            text-align: center;
+            padding: 100px 20px;
+        }
+       
+        .home-section p {
+            font-size: 2rem; /* Adjust the size as needed */
+            font-weight: bold;
+            color: white;
+        }
+
+
+        .home-section h1 {
+            font-size: 3.5rem; /* Adjust the size as needed */
+            font-weight: bold;
+            color: white;
+        }
+
+        
+        .custom-btn {
+            display: inline-block;
+            background: #444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px;
+            text-decoration: none;
+            cursor: default;
+        }
+        .about-section,
+        .publications-section {
+            padding: 120px 0;  
+            min-height: auto;  
+            background-color: white; 
+        }
+
+        .about-section .container,
+        .publications-section .container {
+            max-width: 80%; 
+        }
+
+        .about-section .row,
+        .publications-section .row {
+            display: flex;
+            align-items: center; 
+        }
+
+        .about-section .col-md-6,
+        .publications-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .about-section h2,
+        .publications-section h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #333;
+        }
+        .about-section p,
+        .publications-section p {
+            text-align: justify; 
+            margin: 0; 
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .about-image,
+        .publications-section img {
+            max-height: 300px; /
+            width: 100%; 
+            object-fit: cover; 
+            border-radius: 10px;
+        }
+
+        .about-section ul,
+        .publications-section ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .about-section ul li,
+        .publications-section ul li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .dates-section{
+            padding: 120px 0;  
+            min-height: auto;
+            background: linear-gradient(rgba(255, 105, 180, 0.6), rgba(100, 149, 237, 0.6));
+        }
+        .organizer-section{
+            padding: 120px 0;  
+            min-height: auto;
+            background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(100, 149, 237, 0.7));  
+        }
+        .card {
+            border: none; 
+            border-radius: 10px; 
+            transition: transform 0.3s; 
+        }
+        .card:hover {
+            transform: scale(1.05); 
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0; 
+        }
+        .committee-section {
+            padding: 120px 0; 
+            background-color: white; 
+        }
+        .member-header {
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            color: #007bff; 
+            margin-bottom: 5px; 
+        }
+        .member-role {
+            font-weight: 500; 
+            color: #888; 
+            margin-bottom: 10px; 
+        }
+        .collaborators-section{
+            background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(100, 149, 237, 0.7));
+        } 
+        .contact-section{
+            padding: 120px 0;  
+            min-height: auto;  
+            background-color: white;
+            color: black; 
+        }
+    </style>
+</head>
+<body>
+    <header class="custom-header d-flex align-items-center justify-content-between">
+        <!-- Left Logo -->
+        <div class="header-logo-container">
+            <a href="https://gndec.ac.in" target="_blank">
+            <img src="Images/logo.jpg" alt="GNDEC Logo" class="header-logo">
+            </a>
+        </div>
+    
+        <!-- Center Text -->
+        <div class="header-text text-center text-white">
+            <h1>Guru Nanak Dev Engineering College, Ludhiana</h1>
+            <h2>An Autonomous College u/s 2(f) and 12(B) of UGC Act 1956</h2>
+            <h3>AICTE Approved, Punjab Govt. Aided Status, ISO 9001:2008 Certified</h3>
+            <h3>Affiliated to I.K. Gujral Punjab Technical University, Jalandhar</h3>
+        </div>
+    
+       <!-- Right Logo with Oval Shape and Blur Effect -->
+        <div class="header-logo-container">
+            <a href="https://isteonline.in/" target="_blank">
+            <img src="Images/Istc.png" alt="Conference Logo">
+            </a>
+        </div>
+
+    </header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav w-100 d-flex justify-content-between">
+                <li class="nav-item me-3"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#dates">Important Dates</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#publications">Publications</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#organizers">Organizers</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#committee">Committee</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#collaborators">Collaborators</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#About Us">About Us</a></li>
+                <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="https://www.gndec.ac.in/" target="_blank">GNDEC</a></li>
+                        <li><a class="dropdown-item" href="https://cse.gndec.ac.in/" target="_blank">GNDEC CSE</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="#contact Us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+    <!-- Home Section -->
+    <header id="home" class="section home-section text-center"
+        style="min-height: 100vh; padding: 60px 0; background: linear-gradient(to right, rgba(100, 149, 237, 0.7),rgba(255, 105, 180, 0.7)), url('Images/logo.jpg') no-repeat center center; background-size: contain;">
+            <p><b>Intelligent Computational and Communication Technologies for Sustainable Development</b></p>
+            <h1>ICCT-SD-2025</h1>
+            <a class="custom-btn">April 25-26, 2025 | GNDEC, Punjab, India | Hybrid Mode</a>
+            <a class="custom-btn">Submit your full-length paper to icctsd2025@gndec.ac.in</a>
+            <br>
+            <button class="btn btn-light mt-3"><b>Registration Here</b></button>
+        </div>
+    </header>
+    
+    <section id="about" class="section about-section">
+        <div class="container ">
+            <div class="row align-items-center">
+                <!-- Image on Left -->
+                <div class="col-md-6 text-center">
+                    <img src="/Images/bacground.jpeg" alt="Conference Image" class="about-image img-fluid">
+                </div>
+                <!-- Text on Right -->
+                <div class="col-md-6">
+                    <h2>About ICCT-SD-2025</h2>
+                    <br>
+                    <p>
+                        The ICCT-SD-2025 is an international conference organized by <b>GNDEC</b>, focusing on advancements in  
+                        Artificial Intelligence, Sustainable Computing, IoT, and Smart Technologies. This event serves as a platform 
+                        for researchers, academicians, and industry experts to exchange ideas, present findings, and foster innovation.
+                    </p>
+                    <br>
+                
+                    <a href="#register" class="btn btn-dark">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="dates" class="section dates-section text-center">
+        <h2>Important Dates</h2>
+        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 1</h5>
+                            <p class="card-text">Details about the first important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 2</h5>
+                            <p class="card-text">Details about the second important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 3</h5>
+                            <p class="card-text">Details about the third important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 4</h5>
+                            <p class="card-text">Details about the fourth important date.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="publications" class="section publications-section">
+        <div class="container">
+            <h2 class="text-center">Publication Opportunity</h2>
+            <br>
+            <div class="row align-items-center">
+                <!-- Image on Left -->
+                <div class="col-md-6">
+                    <img src="/Images/publication.jpg" alt="Publication Image" class="about-image img-fluid">
+                </div>
+                <!-- Text on Right -->
+                <div class="col-md-6">
+                    <p>
+                        Here you can add detailed information about the publication opportunity, including submission guidelines, important dates, and any other relevant details that participants should know. Ensure the text is justified for a clean look.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="organizers" class="section organizer-section text-center">
+        <h2>Organizers</h2><br>
+        <div class="container">
+            <div class="row">
+                <!-- Organizer 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer1.jpg" class="card-img-top" alt="Organizer 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 1</h5>
+                            <p class="card-text">Role/Position of Organizer 1</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer2.jpg" class="card-img-top" alt="Organizer 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 2</h5>
+                            <p class="card-text">Role/Position of Organizer 2</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer3.jpg" class="card-img-top" alt="Organizer 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 3</h5>
+                            <p class="card-text">Role/Position of Organizer 3</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer4.jpg" class="card-img-top" alt="Organizer 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 4</h5>
+                            <p class="card-text">Role/Position of Organizer 4</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer5.jpg" class="card-img-top" alt="Organizer 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 5</h5>
+                            <p class="card-text">Role/Position of Organizer 5</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Images/organizer6.jpg" class="card-img-top" alt="Organizer 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Organizer Name 6</h5>
+                            <p class="card-text">Role/Position of Organizer 6</p>
+                            <a href="#" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="committee" class="section committee-section text-center">
+        <div class="container">
+            <h2 class="mb-4 text-dark">Committee Members</h2><br><br>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 1</h4>
+                    <p class="member-role">Position 1</p>
+                    <p>Brief description about Member 1's expertise and contributions to the committee.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 2</h4>
+                    <p class="member-role">Position 2</p>
+                    <p>Brief description about Member 2's expertise and contributions to the committee.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 3</h4>
+                    <p class="member-role">Position 3</p>
+                    <p>Brief description about Member 3's expertise and contributions to the committee.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 4</h4>
+                    <p class="member-role">Position 4</p>
+                    <p>Brief description about Member 4's expertise and contributions to the committee.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 5</h4>
+                    <p class="member-role">Position 5</p>
+                    <p>Brief description about Member 5's expertise and contributions to the committee.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="member-header">Member Name 6</h4>
+                    <p class="member-role">Position 6</p>
+                    <p>Brief description about Member 6's expertise and contributions to the committee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="collaborators" class="section collaborators-section text-center">
+        <h2>Collaborators</h2>
+        <p>Our collaborators...</p>
+    </section>
+
+    <section id="contact Us" class="section contact-section text-center">
+        <h2>Contact Us</h2>
+        <p><b>Address :</b> Guru Nanak Dev Engineering College<br>
+            Gill Park, Gill Road, Ludhiana 141006, Punjab(India).<br>
+            <b>Phone No.</b> 0161 5064501,<br>
+            <b>Email:</b> principal@gndec.ac.in<br>
+            <b>Academic/Admission:</b>0161 5064704<br>
+            <b>Testing and Consultancy:</b> 0161 5064709</p><br>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2025 ICCT-SD | GNDEC</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

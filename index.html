@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICCT-SD-2025 | GNDEC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            scroll-behavior: smooth;
+            position: relative;
+            color: #fff;
+        }
+        .custom-header {
+            background: #1A237E;
+            padding: 20px 5%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Ensures responsiveness */
+            gap: 10px;
+        }
+
+        .header-logo-container {
+            width: 12vw; /* Maintain responsiveness */
+            height: auto; /* Adjust height dynamically */
+            max-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo-container img {
+            width: 100%;
+            height: auto; /* Ensures no cropping */
+            object-fit: contain; /* Shows full logo */
+            border-radius: 50%;
+            border: 3px;
+        }
+
+    
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .custom-header h1 {
+            font-size: 2.2rem;
+        }
+
+        .custom-header h2 {
+            font-size: 1.4rem;
+            color: rgb(243, 85, 85);
+        }
+
+        .custom-header h3 {
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .custom-header {
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            .header-logo-container {
+                width: 20vw;
+                height: 20vw;
+            }
+
+
+            .custom-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .custom-header h2 {
+                font-size: 1rem;
+            }
+
+            .custom-header h3 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .section {
+            padding: 90px 20px;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-nav .nav-link {
+            position: relative;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #4755ed; /* Dodger Blue */
+            color: white;
+            box-shadow: 0px 4px 10px #1A237E;
+            transform: scale(1.05);
+        }
+        
+        .home-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers vertically */
+            align-items: center; /* Centers horizontally */
+            min-height: auto;  
+            padding: 60px 0;
+            
+            
+        }
+        .home-content{
+            text-align: center;
+            padding: 100px 20px;
+        }
+       
+        .home-section p {
+            font-size: 1.6rem; /* Adjust the size as needed */
+            font-weight: bold;
+            color: white;
+        }
+
+
+        .home-section h1 {
+            font-size: 3.5rem; /* Adjust the size as needed */
+            font-weight: bold;
+            color: white;
+        }
+
+        
+        .custom-btn {
+            display: inline-block;
+            background: #444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px;
+            text-decoration: none;
+            cursor: default;
+        }
+        .about-section {
+            padding: 120px 0;  
+            min-height: auto;  
+            background-color: white; 
+        }
+
+        .about-section .container {
+            max-width: 80%; 
+        }
+
+        .about-section .row {
+            display: flex;
+            align-items: center; 
+        }
+
+        .about-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .about-section h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #333;
+        }
+        .about-section p{
+            text-align: justify; 
+            margin: 0; 
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .about-image{
+            max-height: 100; 
+            width: 100%; 
+            object-fit: cover; 
+            border-radius: 10px;
+        }
+
+        .about-section ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .about-section ul li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .dates-section{
+            padding: 120px 0;  
+            min-height: auto;
+            background-color: rgba(100, 149, 237, 0.7);
+        }
+        .conference-section {
+            padding: 120px 0;  
+            min-height: auto;  
+            background-color: white; 
+        }
+
+        .conference-section .container {
+            max-width: 80%; 
+        }
+
+        .conference-section .row {
+            display: flex;
+            align-items: center; 
+        }
+
+        .conference-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .conference-section h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #333;
+        }
+        .conference-section p{
+            text-align: justify; 
+            margin: 0; 
+            font-size: 1.1rem;
+            color: #555;
+        }  
+        .conference-section ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .conference ul li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .card {
+            border: none; 
+            border-radius: 10px; 
+            transition: transform 0.3s; 
+        }
+        .card:hover {
+            transform: scale(1.05); 
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0; 
+        }
+        .card-text ul {
+        list-style-position: inside; /* Moves bullets closer to text */
+        padding-left: 0; /* Removes extra left padding */
+        }
+
+        .card-text li {
+            margin-bottom: 5px; /* Reduces space between items */
+            text-align: left;
+            
+        }
+        .tracks-section {
+            padding: 120px 0; 
+            background-color: rgba(100, 149, 237, 0.7); 
+        }
+        .collaborators-section{
+            background-color: rgba(100, 149, 237, 0.7);
+        } 
+        .contact-section{
+            padding: 120px 0;  
+            min-height: auto;  
+            background-color: white;
+            color: black; 
+        }
+    </style>
+</head>
+<body>
+    <header class="custom-header d-flex align-items-center justify-content-between">
+        <!-- Left Logo -->
+        <div class="header-logo-container">
+            <a href="https://gndec.ac.in" target="_blank">
+            <img src="Images/logo.jpg" alt="GNDEC Logo" class="header-logo">
+            </a>
+        </div>
+    
+        <!-- Center Text -->
+        <div class="header-text text-center text-white">
+            <h1>Guru Nanak Dev Engineering College, Ludhiana</h1>
+            <h2>An Autonomous College u/s 2(f) and 12(B) of UGC Act 1956</h2>
+            <h3>AICTE Approved, Punjab Govt. Aided Status, ISO 9001:2008 Certified</h3>
+            <h3>Affiliated to I.K. Gujral Punjab Technical University, Jalandhar</h3>
+        </div>
+    
+       <!-- Right Logo with Oval Shape and Blur Effect -->
+        <div class="header-logo-container">
+            <a href="https://isteonline.in/" target="_blank">
+            <img src="Images/Istc.png" alt="Conference Logo">
+            </a>
+        </div>
+
+    </header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav w-100 d-flex justify-content-between">
+                <li class="nav-item me-3"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#dates">Important Dates</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#conference">Conference Aim</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#tracks">Session Tracks</a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#collaborators">Collaborators</a></li>
+                <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="https://www.gndec.ac.in/" target="_blank">GNDEC</a></li>
+                        <li><a class="dropdown-item" href="https://cse.gndec.ac.in/" target="_blank">GNDEC CSE</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="#contact Us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+    <!-- Home Section -->
+    <header id="home" class="section home-section text-center"
+        style="min-height: 100vh; padding: 60px 0; background:linear-gradient(to right, rgba(145, 172, 225, 0.7),rgba(100, 149, 237, 0.7)) , url('Images/logo.jpg') no-repeat center center; background-size: contain;">
+            <p><b>Intelligent Computational and Communication Technologies for Sustainable Development</b></p>
+            <h1>ICCT-SD-2025</h1>
+            <a class="custom-btn">April 25-26, 2025 | GNDEC, Punjab, India | Hybrid Mode</a>
+            <a class="custom-btn">Submit your full-length paper to icctsd2025@gndec.ac.in</a>
+            <br>
+            <button class="btn btn-light mt-3"><b>Registration Here</b></button>
+        </div>
+    </header>
+    
+    <section id="about" class="section about-section">
+        <div class="container ">
+            <div class="row align-items-center">
+                <!-- Image on Left -->
+                <div class="col-md-6 text-center">
+                    <img src="/Images/bacground.jpeg" alt="Conference Image" class="about-image img-fluid">
+                </div>
+                <!-- Text on Right -->
+                <div class="col-md-6">
+                    <h2>About The College</h2>
+                    <p>
+                        Guru Nanak Dev Engineering College, Ludhiana (Punjab), established in 1956 is one of the oldest and a 
+                        premier Engineering Institution of India. It is an Autonomous Institute under UGC Act - 1956 [2(f) and 
+                        12(b)] and NAAC accredited. The institute is set up on 88 acres of sprawling pristine land on Ludhiana
+                        Malerkotla Highway. The foundation stone of the college was laid by Honorable Dr. Rajendra Prasad Ji, 
+                        President of India on 8th April, 1956. GNDEC is now an autonomous college under UGC Act 1956 [2(f) 
+                        and 12(B)]. The institution has seven B.Tech., thirteen M.Tech., MBA and MCA courses, besides being a 
+                        QIP centre for Ph.D. All the undergraduate courses of the institute are accredited by National Board of 
+                        Accreditation (NBA), AICTE, New Delhi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="dates" class="section dates-section text-center">
+        <h2>Important Dates</h2>
+        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 1</h5>
+                            <p class="card-text">Details about the first important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 2</h5>
+                            <p class="card-text">Details about the second important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 3</h5>
+                            <p class="card-text">Details about the third important date.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date 4</h5>
+                            <p class="card-text">Details about the fourth important date.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="conference" class="section conference-section">
+        <div class="container">
+            <h2 class="text-center">Aim of The Conference</h2>
+            <br>
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <p>
+                        The International Conference on Intelligent Computational and Communication Technologies for 
+                        Sustainable Development (ICCT-SD 2025) aims to bring together researchers, academicians, industry 
+                        professionals, and policymakers to explore how emerging technologies can drive progress toward 
+                        achieving the United Nations' Sustainable Development Goals (SDGs). The conference focuses on the 
+                        intersection of intelligent computational methods, advanced communication technologies, and 
+                        sustainable development, fostering collaboration and innovation in these critical areas.
+                        <br>
+        
+                        The primary objective is to address global challenges related to physical and mental health, societal 
+                        needs, conductive environment, and technological innovations in various fields by leveraging cutting
+                        edge technologies like artificial intelligence, machine learning, Internet of Things (IoT), and big data 
+                        analytics. Participants will discuss and present research findings, case studies, and best practices that 
+                        demonstrate how these technologies can be applied to create sustainable solutions.
+                        </p><br>
+                        <a href="#register" class="btn btn-danger">Register Now</a>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center">SPEAKERS</h2><br>
+        <div class="container">
+            <div class="row">
+                <!-- Organizer 1 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/sumit.jpg" class="card-img-top" alt="Organizer 1" width="220" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Sumit Goswami</h5>
+                            <p class="card-text text-center">DRDO<br>
+                                New Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 2 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/hoora.jpeg" class="card-img-top" alt="Organizer 2" width="210" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Hoora Fakhrmoosavy</h5>
+                            <p class="card-text text-center"> Bank of Montrel<br>
+                                CANADA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 3 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/sarabjot.jpeg" class="card-img-top" alt="Organizer 3" width="210" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Sarbjot Singh Anand</h5>
+                            <p class="card-text text-center">TATRAS DATA<br>
+                                New Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 4 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/vishal.jpeg" class="card-img-top" alt="Organizer 4" width="220" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Vishal Sharma</h5>
+                            <p class="card-text text-center">Queen’s University<br>
+                                Belfast, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tracks" class="section tracks-section text-center">
+        <div class="container">
+            <h2 class="mb-4 text-dark">Session Tracks</h2><br><br>
+            <div class="row">  <!-- SINGLE ROW START -->
+
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Artificial Intelligence and Machine Learning</h3>
+                            <ul class="card-text text-dark">
+                                    <li>Climate Change Mitigation / Sustainable Agriculture / Smart Cities / Natural Resource Management</li>
+                                    <li>Social Equity and Inclusive Development / Financial Analysis and Management</li>
+                                    <li>AI in Biodiversity Conservation</li>
+                                    <li>Advances in Language Models</li>
+                                    <li>Real World Applications of Natural Language Processing</li>
+                                    <li>AI/ML in Image Processing / Smart Healthcare Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Next Generation Network and Communication Technologies</h3>
+                            <ul class="card-text text-dark">
+                                <li>Wireless Sensor Networks and Its Industrial Applications</li>
+                                <li>Software Defined Networks/Cloud Networking/Data Centre Networking</li>
+                                <li>5G Connectivity for Smart Cities</li>
+                                <li>Green Communication Networks</li>
+                                <li>Telecommunication for Disaster Resilience</li>
+                                <li>Accessible Communication Devices</li>
+                                <li>Digital Inclusion through Affordable Technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Contemporary Technologies</h3>
+                            <ul class="card-text text-dark">
+                                <li>Quantum Inspired Computational Intelligence</li>
+                                <li>Blockchain Technology/Distributed Ledger Technology in Diversified Applications</li>
+                                <li>Evolutionary Software Engineering Models/Algorithms</li>
+                                <li>High Performance Computing/ Parallel and Distributed Computing</li>
+                                <li>Bioinformatics/Biomedical Computing</li>
+                                <li>Robotics and Automation/Cyber Physical Systems/Embedded Systems/Digital Twin</li>
+                                <li>Augmented Reality (AR) and Virtual Reality (VR)</li>
+                                <li>Human Computer Interaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Internet of Things (IoT) and Smart Systems</h3>
+                            <ul class="card-text text-dark">
+                                <li>Smart Grids for Energy Management</li>
+                                <li>Smart Systems for Traffic Management</li>
+                                <li>Smart Healthcare Systems, Industry 4.0, Urban Planning, Smart Buildings</li>
+                                <li>Smart Green Architectures</li>
+                                <li>IoT-based Water Management Systems, Smart Waste Management</li>
+                                <li>Swarm Intelligence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Security and Privacy</h3>
+                            <ul class="card-text text-dark">
+                                <li>Network Security and Data Security</li>
+                                <li>Cybersecurity Applications</li>
+                                <li>Data Privacy in Green Energy Solutions</li>
+                                <li>Cybersecurity for Supply Chains</li>
+                                <li>Protecting IoT Networks in Environmental Monitoring</li>
+                                <li>Threat Detection in Eco-Friendly Technologies</li>
+                                <li>Data Protection in Financial Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Big Data Analytics and Cloud Computing</h3>
+                            <ul class="card-text text-dark">
+                                <li>Data -Driven Health Analytics/Environment Analytics</li>
+                                <li>Cloud Solutions for Education Equity</li>
+                                <li>Sustainable Agriculture through Big Data</li>
+                                <li>Energy Efficiency via Cloud Computing</li>
+                                <li>Multimodal Data Analysis</li>
+                                <li>Cloud Models and Architecture</li>
+                                <li>Scalable Cloud Architectures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                
+            </div>  <!-- SINGLE ROW END -->
+        </div>
+    </section>
+    
+    
+    
+    <section id="collaborators" class="section collaborators-section text-center">
+        <h2>Collaborators</h2>
+        <p>Our collaborators...</p>
+    </section>
+
+    <section id="contact Us" class="section contact-section text-center">
+        <h2>Contact Us</h2>
+        <p><b>Address :</b> Guru Nanak Dev Engineering College<br>
+            Gill Park, Gill Road, Ludhiana 141006, Punjab(India).<br>
+            <b>Phone No.</b> 0161 5064501,<br>
+            <b>Email:</b> principal@gndec.ac.in<br>
+            <b>Academic/Admission:</b>0161 5064704<br>
+            <b>Testing and Consultancy:</b> 0161 5064709</p><br>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2025 ICCT-SD | GNDEC</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
