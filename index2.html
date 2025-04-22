@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICCT-SD-2025 | GNDEC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>                                  
+        body {
+            scroll-behavior: smooth;
+            position: relative;
+            color: #fff;
+        }
+        .custom-header {
+            background: #1A237E;
+            padding: 20px 5%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Ensures responsiveness */
+            gap: 10px;
+        }
+
+        .header-logo-container {
+            width: 12vw; /* Maintain responsiveness */
+            height: auto; /* Adjust height dynamically */
+            max-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo-container img {
+            width: 100%;
+            height: auto; /* Ensures no cropping */
+            object-fit: contain; /* Shows full logo */
+            border-radius: 50%;
+            border: 3px;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
+        .logoheadleft{
+            filter: drop-shadow(0 0 0.35rem rgb(244, 250, 255));
+        }
+
+        .custom-header h1 {
+            font-size: 2.2rem;
+        }
+
+        .custom-header h2 {
+            font-size: 1.4rem;
+            color: rgb(243, 85, 85);
+        }
+
+        .custom-header h3 {
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .custom-header {
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            .header-logo-container {
+                width: 20vw;
+                height: 20vw;
+            }
+
+
+            .custom-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .custom-header h2 {
+                font-size: 1rem;
+            }
+
+            .custom-header h3 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .section {
+            padding: 90px 20px;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-nav .nav-link {
+            position: relative;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #5a63c5; /* Dodger Blue */
+            color: white;
+            box-shadow: 0px 4px 10px #1A237E;
+            transform: scale(1.05);
+        }
+        .home-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers vertically */
+            align-items: center; /* Centers horizontally */
+        }
+              
+        .home-section p {
+            color: #FFFFFF; /* Try different options */
+            font-weight: bold;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .home-section h1 {
+            color: #FFFFFF;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+        .home-section h3{
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            font-weight: bold;
+            animation: fadeInUp 1.2s ease-in-out; 
+        }
+        .home-section h5{
+            color: #dfdfdf;
+            margin-bottom: 18px; 
+            font-size:1.6rem;
+            font-weight: bold;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+        
+        .custom-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #2e2e2e; /* Matching your button color */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            transition: background 0.3s ease-in-out;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .custom-btn:hover {
+            background-color: #1f1f1f; /* Slightly darker shade on hover */
+        }
+
+        .custom-btn i {
+            margin-right: 8px;
+        }
+
+        .arrow {
+            margin-left: 8px;
+            font-size: 24px; 
+        }
+        /* Keyframes for animations */
+        @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+       
+        .conference-section {
+            padding: 70px 0; 
+            padding-bottom: 2%; 
+            background-color: white; 
+        }
+
+        .conference-section .container {
+            max-width: 80%; 
+        }
+
+        .conference-section .row {
+            display: flex;
+            align-items: center; 
+        }
+
+        .conference-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .conference-section h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #333;
+        }
+        .conference-section p{
+            text-align: justify; 
+            margin: 0; 
+            font-size: 1.1rem;
+            color: #555;
+        }  
+        .conference-section ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .conference ul li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .card {
+            border: none; 
+            border-radius: 10px; 
+            border: 2px solid #ddd; 
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: #fff;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0; 
+        }
+
+        
+        .card-text ul {
+        list-style-position: inside; /* Moves bullets closer to text */
+        padding-left: 0; /* Removes extra left padding */
+        }
+
+        .card-text li {
+        margin-bottom: 5px; /* Reduces space between items */
+        text-align: left;
+            
+        }
+        .dates-section {
+            padding: 70px 0;
+            min-height:fit-content;
+            text-align: center;
+            background-color: rgba(100, 149, 237, 0.7);
+        }
+
+        /* Timeline Container */
+        .timeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            flex-wrap: wrap;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Card Container */
+        .timeline-card {
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 180px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .timeline-card:hover {
+            transform: scale(1.1);
+        }
+
+        /* Icon */
+        .icon {
+            background-color: #a2d5f2;
+            color: #00457C;
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 10px;
+        }
+
+        /* Text Content */
+        .timeline-content h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .timeline-content p {
+            font-size: 16px;
+            color: #222;
+        }
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item::after {
+                width: 3px;
+                height: 50px;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .tracks-section {
+            padding: 70px 0; 
+            padding-bottom: 2%;
+            background-color: white; 
+        }
+        .collaborators-section{
+            background-color: rgba(100, 149, 237, 0.7);
+            padding: 70px 0;
+        } 
+        .about-section {
+            padding: 70px 0;  
+           padding-bottom: 2%;
+            background-color: white; 
+        }
+
+        .about-section .container {
+            max-width: 80%; 
+        }
+
+        .about-section .row {
+            display: flex;
+            align-items: center; 
+        }
+
+        .about-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .about-section h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #FFFFFF;
+            background-color:rgba(2, 46, 129, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .about-section p{
+            text-align: justify; 
+         
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .about-image{
+            max-height: 100; 
+            width: 100%; 
+            object-fit: cover; 
+            border-radius: 10px;
+        }
+        .about-btn {
+        background-color: rgba(2, 46, 129, 0.7); 
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-top: 10px;
+        text-decoration: none;
+        width: 150px;
+    }
+
+        /* Button hover effect */
+        .about-btn:hover {
+            background-color: #4169E1; /* Royal Blue */
+        }
+        
+            
+        .contact-section {
+        padding: 40px 8%;
+        background-color: rgba(100, 149, 237, 0.7);
+        color: black;
+        text-align: left;
+    }
+    
+    .contact-header {
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+        flex-wrap: wrap;
+    }
+    
+    .contact-details {
+        width: 48%;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .contact-details b {
+        font-size: 20px;
+        color: #000;
+    }
+
+    .contact-details a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .contact-details a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .contact-details {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    }
+        .scroll-up-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px; /* Increased size */
+        height: 60px;
+        background-color: #007bff; /* Bootstrap primary color */
+        color: white;
+        border: none;
+        border-radius: 50%; /* Circular shape */
+        cursor: pointer;
+        font-size: 28px; /* Larger arrow */
+        font-weight: bold;
+        display: none; /* Hidden initially */
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for visibility */
+        transition: all 0.3s ease-in-out;
+        opacity: 0.8;
+        }
+
+        .scroll-up-btn:hover {
+        background-color: #1A237E; /* Darker blue for hover */
+        opacity: 1; /* Fully visible */
+        transform: scale(1.1); /* Slight zoom effect */
+        }
+
+    </style>
+</head>
+<body>
+    <button id="scrollUpBtn" class="scroll-up-btn">
+        ↑
+      </button>
+      
+    <header class="custom-header d-flex align-items-center justify-content-between">
+        <!-- Left Logo -->
+        <div class="header-logo-container">
+            <div class="logoheadleft">
+            <a href="https://gndec.ac.in">
+            <img src="Images/logo.jpg" alt="GNDEC Logo" class="header-logo">
+            </a>
+        </div>
+        </div>
+    
+        <!-- Center Text -->
+        <div class="header-text text-center text-white">
+            <h1>Guru Nanak Dev Engineering College, Ludhiana</h1>
+            <h2>An Autonomous College u/s 2(f) and 12(B) of UGC Act 1956</h2>
+            <h3>AICTE Approved, Punjab Govt. Aided Status, ISO 9001:2008 Certified</h3>
+            <h3>Affiliated to I.K. Gujral Punjab Technical University, Jalandhar</h3>
+        </div>
+    
+       <!-- Right Logo with Oval Shape and Blur Effect -->
+        <div class="header-logo-container">
+            <a href="https://isteonline.in">
+            <img src="Images/Iste.jpg" alt="Conference Logo">
+            </a>
+        </div>
+
+    </header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav w-100 d-flex justify-content-between">
+                <li class="nav-item me-3"><a class="nav-link" href="#home"><b>Home</b></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#conference"><b>About Conference</b></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#dates"><b>Important Dates</b></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#tracks"><b>Session Tracks</b></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#collaborators"><b>Collaborators</b></a></li>
+                <li class="nav-item me-3"><a class="nav-link" href="#about"><b>About Institute</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact Us"><b>Contact Us</b></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Home Section -->
+    <header id="home" class="section home-section text-center"
+        style="min-height: 98vh;  padding:  auto;  background: linear-gradient(to right, rgba(76, 119, 205, 0.7), rgba(148, 180, 239, 0.7)), url('Images/last.jpg') no-repeat center center; background-size: contain;">
+            <h3>The Department of Computer Science and Engineering</h3>
+            <h5>is organizing the</h5>
+            <p>Intelligent Computational and Communication Technologies for Sustainable Development</p>
+            <h1>ICCT-SD-2025</h1>
+            <a class="custom-btn">July 16-17, 2025 | GNDEC, Punjab, India</a><br>
+            <a href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" class="custom-btn">
+                 Submit your full-length paper to icctsd2025@gndec.ac.in <span class="arrow"> &rarr;</span>
+            </a><br>
+            <button class="btn btn-light mt-3"><b>Registration Here</b></button>
+        </div>
+    </header>
+    
+    <section id="conference" class="section conference-section">
+        <div class="container">
+            <h2 class="text-center">Aim of The Conference</h2>
+            <br>
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <p>
+                        The International Conference on Intelligent Computational and Communication Technologies for 
+                        Sustainable Development (ICCT-SD 2025) aims to bring together researchers, academicians, industry 
+                        professionals, and policymakers to explore how emerging technologies can drive progress toward 
+                        achieving the United Nations' Sustainable Development Goals (SDGs). The conference focuses on the 
+                        intersection of intelligent computational methods, advanced communication technologies, and 
+                        sustainable development, fostering collaboration and innovation in these critical areas.
+                        <br>
+        
+                        The primary objective is to address global challenges related to physical and mental health, societal 
+                        needs, conductive environment, and technological innovations in various fields by leveraging cutting
+                        edge technologies like artificial intelligence, machine learning, Internet of Things (IoT), and big data 
+                        analytics. Participants will discuss and present research findings, case studies, and best practices that 
+                        demonstrate how these technologies can be applied to create sustainable solutions.
+                        </p><br>
+                        <a href="#register" class="btn btn-danger">Register Now</a>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center">SPEAKERS</h2><br>
+        <div class="container">
+            <div class="row">
+                <!-- Organizer 1 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/sumit.jpg" class="card-img-top" alt="Organizer 1" width="190" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Sumit Goswami</h5>
+                            <p class="card-text text-center">DRDO<br>
+                                New Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 2 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/hoora.jpeg" class="card-img-top" alt="Organizer 2" width="180" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Hoora Fakhrmoosavy</h5>
+                            <p class="card-text text-center"> Bank of Montrel<br>
+                                CANADA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 3 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/sarabjot.jpeg" class="card-img-top" alt="Organizer 3" width="180" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Sarbjot Singh Anand</h5>
+                            <p class="card-text text-center">TATRAS DATA<br>
+                                New Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Organizer 4 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="Images/vishal.jpeg" class="card-img-top" alt="Organizer 4" width="190" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dr. Vishal Sharma</h5>
+                            <p class="card-text text-center">Queen’s University<br>
+                                Belfast, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="dates" class="section dates-section">
+        <h2>Important Dates</h2><br>
+        <div class="container">
+            <div class="timeline">
+                <!-- Date 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>May 20, 2025</h5>
+                            <p>Paper submission <br>Deadline</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Date 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>June 15, 2025</h5>
+                            <p>Acceptance/Rejection <br>Notification</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Date 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>June 30, 2025</h5>
+                            <p>CRC of accepted <br>Papers</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Date 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>July 16-17, 2025</h5>
+                            <p>Conference <br> Dates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section id="tracks" class="section tracks-section text-center">
+        <div class="container">
+            <h2 class="mb-4 text-dark">Session Tracks</h2>
+            <div class="row">  <!-- SINGLE ROW START -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body ">
+                            <h4 class="card-title text-primary">Artificial Intelligence and Machine Learning</h4>
+                            <ul class="card-text text-dark">
+                                    <li>Climate Change Mitigation / Sustainable Agriculture / Smart Cities / Natural Resource Management</li>
+                                    <li>Social Equity and Inclusive Development / Financial Analysis and Management</li>
+                                    <li>AI in Biodiversity Conservation</li>
+                                    <li>Advances in Language Models</li>
+                                    <li>Real World Applications of Natural Language Processing</li>
+                                    <li>AI/ML in Image Processing / Smart Healthcare Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Next Generation Network and Communication Technologies</h4>
+                            <ul class="card-text text-dark">
+                                <li>Wireless Sensor Networks and Its Industrial Applications</li>
+                                <li>Software Defined Networks/Cloud Networking/Data Centre Networking</li>
+                                <li>5G Connectivity for Smart Cities</li>
+                                <li>Green Communication Networks</li>
+                                <li>Telecommunication for Disaster Resilience</li>
+                                <li>Accessible Communication Devices</li>
+                                <li>Digital Inclusion through Affordable Technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Contemporary Technologies</h4>
+                            <ul class="card-text text-dark">
+                                <li>Quantum Inspired Computational Intelligence</li>
+                                <li>Blockchain Technology/Distributed Ledger Technology in Diversified Applications</li>
+                                <li>Evolutionary Software Engineering Models/Algorithms</li>
+                                <li>High Performance Computing/ Parallel and Distributed Computing</li>
+                                <li>Bioinformatics/Biomedical Computing</li>
+                                <li>Robotics and Automation/Cyber Physical Systems/Embedded Systems/Digital Twin</li>
+                                <li>Augmented Reality (AR) and Virtual Reality (VR)</li>
+                                <li>Human Computer Interaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Internet of Things (IoT) and Smart Systems</h4>
+                            <ul class="card-text text-dark">
+                                <li>Smart Grids for Energy Management</li>
+                                <li>Smart Systems for Traffic Management</li>
+                                <li>Smart Healthcare Systems, Industry 4.0, Urban Planning, Smart Buildings</li>
+                                <li>Smart Green Architectures</li>
+                                <li>IoT-based Water Management Systems, Smart Waste Management</li>
+                                <li>Swarm Intelligence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Security and Privacy</h4>
+                            <ul class="card-text text-dark">
+                                <li>Network Security and Data Security</li>
+                                <li>Cybersecurity Applications</li>
+                                <li>Data Privacy in Green Energy Solutions</li>
+                                <li>Cybersecurity for Supply Chains</li>
+                                <li>Protecting IoT Networks in Environmental Monitoring</li>
+                                <li>Threat Detection in Eco-Friendly Technologies</li>
+                                <li>Data Protection in Financial Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Big Data Analytics and Cloud Computing</h4>
+                            <ul class="card-text text-dark">
+                                <li>Data -Driven Health Analytics/Environment Analytics</li>
+                                <li>Cloud Solutions for Education Equity</li>
+                                <li>Sustainable Agriculture through Big Data</li>
+                                <li>Energy Efficiency via Cloud Computing</li>
+                                <li>Multimodal Data Analysis</li>
+                                <li>Cloud Models and Architecture</li>
+                                <li>Scalable Cloud Architectures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  <!-- SINGLE ROW END -->
+        </div>
+    </section>
+    
+    
+    
+    <section id="collaborators" class="section collaborators-section text-center">
+        <h2>Collaborators</h2>
+        <p>Our collaborators...</p>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container ">
+            <div class="row align-items-center">
+                <!-- Image on Left -->
+                <div class="col-md-6 text-center">
+                    <h2 style="text-align: left;">About the College</h2><br>
+                    <img src="Images/gne_front.jpg" alt="Conference Image" class="about-image img-fluid"><br>
+                    <p>
+                        Guru Nanak Dev Engineering College, Ludhiana (Punjab), established in 1956 is one of the oldest and a 
+                        premier Engineering Institution of India. It is an Autonomous Institute under UGC Act - 1956 [2(f) and 
+                        12(b)] and NAAC accredited. The institute is set up on 88 acres of sprawling pristine land on Ludhiana
+                        Malerkotla Highway. The foundation stone of the college was laid by Honorable Dr. Rajendra Prasad Ji, 
+                        President of India on 8th April, 1956. GNDEC is now an autonomous college under UGC Act 1956 [2(f) 
+                        and 12(B)]. The institution has seven B.Tech., thirteen M.Tech., MBA and MCA courses, besides being a 
+                        QIP centre for Ph.D. All the undergraduate courses of the institute are accredited by National Board of 
+                        Accreditation (NBA), AICTE, New Delhi.
+                    </p>
+                    <a href="https://gndec.ac.in" class="about-btn">Explore More</a><br>
+                </div>
+                <!-- Text on Right -->
+                <div class="col-md-6 text-center">
+                    <h2 style="text-align: left;">About the Department</h2><br>
+                    <img src="Images/bacground.jpeg" alt="Conference Image" class="about-image img-fluid"><br>
+                    <p>
+                        Department of Computer Science and Engineering was established in year 1997. Department is offering B.Tech.
+                        and M.Tech. programs in Computer Science and Engineering. Laboratories of the department are equipped with
+                        state of the art infrastructure to cater course work and research activities. A Good number of books is 
+                        available in departmental library for prompt access to students and faculty members. Under academic autonomy,
+                        study schemes of the offered programs are updated regularly focusing outcome based education, to make students
+                        employable as per national and international requirements. Graduates of the department are serving around the 
+                        globe in eminent companies, academic, as well as in public sector. 
+                    </p>
+                    <a href="https://cse.gndec.ac.in/" class="about-btn">Explore More</a><br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact Us" class="contact-section">
+        <h2 class="contact-header">Contact Us</h2>
+    
+        <div class="contact-container">
+            <div class="contact-details">
+                <b>Convener</b><br>
+                <b>Dr. Parminder Singh</b><br>
+                Professor, Department of Computer Science & Engineering<br>
+                Guru Nanak Dev Engineering College, Ludhiana<br>
+                📧 <b>Email:</b> <a href="mailto:icct_sd_2025@gndec.ac.in">icct_sd_2025@gndec.ac.in</a><br>
+                📞 <b>Phone:</b> +91 98555 76176
+            </div>
+    
+            <div class="contact-details">
+                <b>Co-Convener</b><br>
+                <b>Dr. Sita Rani</b><br>
+                Assistant Professor, Department of Computer Science & Engineering<br>
+                Guru Nanak Dev Engineering College, Ludhiana<br>
+                📧 <b>Email:</b> <a href="mailto:icct_sd_2025@gndec.ac.in">icct_sd_2025@gndec.ac.in</a><br>
+                📞 <b>Phone:</b> +91 7508008004
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2025 ICCT-SD | GNDEC</p>
+    </footer>
+    <script>
+        // Show the button when scrolling down
+        window.onscroll = function () {
+          var scrollButton = document.getElementById("scrollUpBtn");
+          if (document.documentElement.scrollTop > 200) {
+            scrollButton.style.display = "block";
+          } else {
+            scrollButton.style.display = "none";
+          }
+        };
+      
+        // Scroll to the top when clicked
+        document.getElementById("scrollUpBtn").addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
