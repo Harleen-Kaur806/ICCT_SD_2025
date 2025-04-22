@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICCT-SD-2025 | GNDEC</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
+    <style>                                  
         body {
             scroll-behavior: smooth;
             position: relative;
@@ -38,12 +38,13 @@
             border-radius: 50%;
             border: 3px;
         }
-
-    
         .header-text {
             flex: 1;
             text-align: center;
             min-width: 250px;
+        }
+        .logoheadleft{
+            filter: drop-shadow(0 0 0.35rem rgb(244, 250, 255));
         }
 
         .custom-header h1 {
@@ -115,45 +116,65 @@
             flex-direction: column;
             justify-content: center; /* Centers vertically */
             align-items: center; /* Centers horizontally */
-            min-height: auto;  
-            padding: 60px 0;
-            
-            
-        }
-        .home-content{
-            text-align: center;
-            padding: 100px 20px;
         }
        
         .home-section p {
-            font-size: 1.6rem; /* Adjust the size as needed */
+            color: #FFFFFF; /* Try different options */
             font-weight: bold;
-            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
-
 
         .home-section h1 {
-            font-size: 3.5rem; /* Adjust the size as needed */
+            color: #FFFFFF;
             font-weight: bold;
-            color: white;
+            font-size: 1.9rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
-
+        .home-section h2{
+            color: #FFFFFF;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+            font-weight: bold; 
+        }
+        .home-section h5{
+            color: #dfdfdf;
+            margin-bottom: 18px; 
+            font-size:1.6rem;
+            font-weight: bold;
+        }
         
         .custom-btn {
-            display: inline-block;
-            background: #444;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #2e2e2e; /* Matching your button color */
             color: white;
             padding: 10px 20px;
             border-radius: 30px;
-            font-weight: bold;
-            margin: 10px;
-            text-decoration: none;
-            cursor: default;
+            border: none;
+            transition: background 0.3s ease-in-out;
         }
-        
+
+
+        .custom-btn:hover {
+            background-color: #1f1f1f; /* Slightly darker shade on hover */
+        }
+
+        .custom-btn i {
+            margin-right: 8px;
+        }
+
+        .arrow {
+            margin-left: 8px;
+            font-size: 24px; 
+        }
         .conference-section {
-            padding: 120px 0;  
-            min-height: auto;  
+            padding: 70px 0; 
+            padding-bottom: 2%; 
             background-color: white; 
         }
 
@@ -195,40 +216,124 @@
         .card {
             border: none; 
             border-radius: 10px; 
-            transition: transform 0.3s; 
+            border: 2px solid #ddd; 
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: #fff;
+        }
+        .custom-blue {
+        background-color:rgba(82, 138, 242, 0.7);
         }
         .card:hover {
-            transform: scale(1.05); 
+            transform: scale(1.05);
         }
 
         .card-img-top {
             border-radius: 10px 10px 0 0; 
         }
+
+        
         .card-text ul {
         list-style-position: inside; /* Moves bullets closer to text */
         padding-left: 0; /* Removes extra left padding */
         }
 
         .card-text li {
-            margin-bottom: 5px; /* Reduces space between items */
-            text-align: left;
+        margin-bottom: 5px; /* Reduces space between items */
+        text-align: left;
             
         }
-        .dates-section{
-            padding: 120px 0;  
-            min-height: auto;
+        .dates-section {
+            padding: 70px 0;
+            min-height:fit-content;
+            text-align: center;
             background-color: rgba(100, 149, 237, 0.7);
         }
+
+        /* Timeline Container */
+        .timeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            flex-wrap: wrap;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Card Container */
+        .timeline-card {
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 180px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .timeline-card:hover {
+            transform: scale(1.1);
+        }
+
+        /* Icon */
+        .icon {
+            background-color: #a2d5f2;
+            color: #00457C;
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 10px;
+        }
+
+        /* Text Content */
+        .timeline-content h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .timeline-content p {
+            font-size: 16px;
+            color: #222;
+        }
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item::after {
+                width: 3px;
+                height: 50px;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
         .tracks-section {
-            padding: 120px 0; 
+            padding: 70px 0; 
+            padding-bottom: 2%;
             background-color: white; 
         }
         .collaborators-section{
             background-color: rgba(100, 149, 237, 0.7);
+            padding: 70px 0;
         } 
         .about-section {
-            padding: 120px 0;  
-            min-height: auto;  
+            padding: 70px 0;  
+           padding-bottom: 2%;
             background-color: white; 
         }
 
@@ -250,11 +355,14 @@
         .about-section h2 {
             font-weight: bold;
             font-size: 2rem;
-            color: #333;
+            color: #FFFFFF;
+            background-color:rgba(2, 46, 129, 0.7);
+            padding: 15px;
+            border-radius: 10px;
         }
         .about-section p{
             text-align: justify; 
-            margin: 0; 
+         
             font-size: 1.1rem;
             color: #555;
         }
@@ -265,18 +373,23 @@
             object-fit: cover; 
             border-radius: 10px;
         }
+        .about-btn {
+        background-color: rgba(2, 46, 129, 0.7); 
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-top: 10px;
+        text-decoration: none;
+        width: 150px;
+    }
 
-        .about-section ul {
-            padding: 0;
-            margin-top: 10px;
-        }
-
-        .about-section ul li {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
+        /* Button hover effect */
+        .about-btn:hover {
+            background-color: #4169E1; /* Royal Blue */
+        }  
         .contact-section {
-        padding: 60px 8%;
+        padding: 40px 8%;
         background-color: rgba(100, 149, 237, 0.7);
         color: black;
         text-align: left;
@@ -285,7 +398,6 @@
     .contact-header {
         font-size: 28px;
         font-weight: bold;
-        margin-bottom: 20px;
     }
     
     .contact-container {
@@ -330,40 +442,46 @@
             text-align: center;
         }
     }
-    
-    #scrollBtn {
-    display: block; /* Hidden by default */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 18px;
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
+        .scroll-up-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px; /* Increased size */
+        height: 60px;
+        background-color: #007bff; /* Bootstrap primary color */
+        color: white;
+        border: none;
+        border-radius: 50%; /* Circular shape */
+        cursor: pointer;
+        font-size: 28px; /* Larger arrow */
+        font-weight: bold;
+        display: none; /* Hidden initially */
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for visibility */
+        transition: all 0.3s ease-in-out;
+        opacity: 0.8;
+        }
 
-    #scrollBtn:hover {
-    background-color: #0056b3;
-}
+        .scroll-up-btn:hover {
+        background-color: #1A237E; /* Darker blue for hover */
+        opacity: 1; /* Fully visible */
+        transform: scale(1.1); /* Slight zoom effect */
+        }
 
     </style>
 </head>
 <body>
-    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">
+    <button id="scrollUpBtn" class="scroll-up-btn">
         ↑
-    </button>
+      </button>
+      
     <header class="custom-header d-flex align-items-center justify-content-between">
         <!-- Left Logo -->
         <div class="header-logo-container">
+            <div class="logoheadleft">
             <a href="https://gndec.ac.in">
             <img src="Images/logo.jpg" alt="GNDEC Logo" class="header-logo">
             </a>
+        </div>
         </div>
     
         <!-- Center Text -->
@@ -376,8 +494,8 @@
     
        <!-- Right Logo with Oval Shape and Blur Effect -->
         <div class="header-logo-container">
-            <a href="https://isteonline.in/">
-            <img src="Images/Istc.png" alt="Conference Logo">
+            <a href="https://isteonline.in">
+            <img src="Images/Iste.jpg" alt="Conference Logo">
             </a>
         </div>
 
@@ -394,33 +512,24 @@
                 <li class="nav-item me-3"><a class="nav-link" href="#dates"><b>Important Dates</b></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="#tracks"><b>Session Tracks</b></a></li>
                 <li class="nav-item me-3"><a class="nav-link" href="#collaborators"><b>Collaborators</b></a></li>
-                
-                <li class="nav-item dropdown me-3">
-                    <a class="nav-link dropdown-toggle" href="about" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <b>About Institute</b>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                        <li class="nav-item me-3"><a class="nav-link" href="#about">About College</a></li>
-                        <li><a class="dropdown-item" href="https://www.gndec.ac.in/" >GNDEC</a></li>
-                        <li><a class="dropdown-item" href="https://cse.gndec.ac.in/" >GNDEC CSE</a></li>
-                    </ul>
-                </li>
+                <li class="nav-item me-3"><a class="nav-link" href="#about"><b>About Institute</b></a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact Us"><b>Contact Us</b></a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-    
     <!-- Home Section -->
     <header id="home" class="section home-section text-center"
-        style="min-height: 100vh; padding: 60px 0;background: linear-gradient(to right, rgba(76, 119, 205, 0.7), rgba(113, 157, 239, 0.7)), url('Images/logo.jpg') no-repeat center center;background-size: cover; background-size: contain;">
-            <p><b>Intelligent Computational and Communication Technologies for Sustainable Development</b></p>
+        style="min-height: 98vh;  padding:  auto;  background: linear-gradient(to right, rgba(76, 119, 205, 0.7), rgba(148, 180, 239, 0.7)), url('Images/last.jpg') no-repeat center center; background-size: contain;">
+            <h2>Department of Computer Science and Engineering</h2>
+            <h5>Organizes International Conference on</h5>
+            <p>Intelligent Computational and Communication Technologies for Sustainable Development</p>
             <h1>ICCT-SD-2025</h1>
-            <a class="custom-btn">April 25-26, 2025 | GNDEC, Punjab, India | Hybrid Mode</a>
-            <a class="custom-btn">Submit your full-length paper to icctsd2025@gndec.ac.in</a>
-            <br>
+            <a class="custom-btn">July 16-17, 2025 | GNDEC, Punjab, India</a><br>
+            <a href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" class="custom-btn">
+                 Submit your full-length paper <span class="arrow"> &rarr;</span>
+            </a>
             <button class="btn btn-light mt-3"><b>Registration Here</b></button>
         </div>
     </header>
@@ -456,7 +565,7 @@
                 <!-- Organizer 1 -->
                 <div class="col-md-3 mb-3">
                     <div class="card">
-                        <img src="Images/sumit.jpg" class="card-img-top" alt="Organizer 1" width="220" height="250">
+                        <img src="Images/sumit.jpg" class="card-img-top " alt="Organizer 1" width="160" height="220">
                         <div class="card-body">
                             <h5 class="card-title text-center">Dr. Sumit Goswami</h5>
                             <p class="card-text text-center">DRDO<br>
@@ -467,7 +576,7 @@
                 <!-- Organizer 2 -->
                 <div class="col-md-3 mb-3">
                     <div class="card">
-                        <img src="Images/hoora.jpeg" class="card-img-top" alt="Organizer 2" width="210" height="250">
+                        <img src="Images/hoora.jpeg" class="card-img-top" alt="Organizer 2" width="150" height="220">
                         <div class="card-body">
                             <h5 class="card-title text-center">Dr. Hoora Fakhrmoosavy</h5>
                             <p class="card-text text-center"> Bank of Montrel<br>
@@ -478,7 +587,7 @@
                 <!-- Organizer 3 -->
                 <div class="col-md-3 mb-3">
                     <div class="card">
-                        <img src="Images/sarabjot.jpeg" class="card-img-top" alt="Organizer 3" width="210" height="250">
+                        <img src="Images/sarabjot.jpeg" class="card-img-top" alt="Organizer 3" width="150" height="220">
                         <div class="card-body">
                             <h5 class="card-title text-center">Dr. Sarbjot Singh Anand</h5>
                             <p class="card-text text-center">TATRAS DATA<br>
@@ -489,7 +598,7 @@
                 <!-- Organizer 4 -->
                 <div class="col-md-3 mb-3">
                     <div class="card">
-                        <img src="Images/vishal.jpeg" class="card-img-top" alt="Organizer 4" width="220" height="250">
+                        <img src="Images/vishal.jpeg" class="card-img-top" alt="Organizer 4" width="160" height="220">
                         <div class="card-body">
                             <h5 class="card-title text-center">Dr. Vishal Sharma</h5>
                             <p class="card-text text-center">Queen’s University<br>
@@ -501,40 +610,61 @@
         </div>
     </section>
     
-    <section id="dates" class="section dates-section text-center">
-        <h2>Important Dates</h2>
-        <br><br><br>
+    <section id="dates" class="section dates-section">
+        <h2>Important Dates</h2><br>
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Date 1</h5>
-                            <p class="card-text">Details about the first important date.</p>
+            <div class="timeline">
+                <!-- Date 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>May 20, 2025</h5>
+                            <p>Paper submission <br>Deadline</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Date 2</h5>
-                            <p class="card-text">Details about the second important date.</p>
+    
+                <!-- Date 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>June 15, 2025</h5>
+                            <p>Acceptance/Rejection <br>Notification</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Date 3</h5>
-                            <p class="card-text">Details about the third important date.</p>
+    
+                <!-- Date 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>June 30, 2025</h5>
+                            <p>CRC of accepted <br>Papers</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Date 4</h5>
-                            <p class="card-text">Details about the fourth important date.</p>
+                
+                <!-- Date 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>July 15, 2025</h5>
+                            <p>Preconference <br>Workshop</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="icon">📅</div>
+                        <div class="timeline-content">
+                            <h5>July 16-17, 2025</h5>
+                            <p>Conference <br> Dates</p>
                         </div>
                     </div>
                 </div>
@@ -544,22 +674,21 @@
     
     
     
-    
     <section id="tracks" class="section tracks-section text-center">
         <div class="container">
-            <h2 class="mb-4 text-dark">Session Tracks</h2><br><br>
+            <h2 class="mb-4 text-dark">Session Tracks</h2>
             <div class="row">  <!-- SINGLE ROW START -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body ">
-                            <h3 class="card-title text-primary">Artificial Intelligence and Machine Learning</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Artificial Intelligence and Machine Learning</h4>
                             <ul class="card-text text-dark">
-                                    <li>Climate Change Mitigation / Sustainable Agriculture / Smart Cities / Natural Resource Management</li>
-                                    <li>Social Equity and Inclusive Development / Financial Analysis and Management</li>
-                                    <li>AI in Biodiversity Conservation</li>
-                                    <li>Advances in Language Models</li>
-                                    <li>Real World Applications of Natural Language Processing</li>
-                                    <li>AI/ML in Image Processing / Smart Healthcare Systems</li>
+                                <li>Climate Change Mitigation / Sustainable Agriculture / Smart Cities / Natural Resource Management</li>
+                                <li>Social Equity and Inclusive Development / Financial Analysis and Management</li>
+                                <li>AI in Biodiversity Conservation</li>
+                                <li>Advances in Language Models</li>
+                                <li>Real World Applications of Natural Language Processing</li>
+                                <li>AI/ML in Image Processing / Smart Healthcare Systems</li>
                             </ul>
                         </div>
                     </div>
@@ -567,26 +696,23 @@
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
-                            <h3 class="card-title text-primary">Next Generation Network and Communication Technologies</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Next Generation Network and Communication Technologies</h4>
                             <ul class="card-text text-dark">
                                 <li>Wireless Sensor Networks and Its Industrial Applications</li>
-                                <li>Software Defined Networks/Cloud Networking/Data Centre Networking</li>
+                                <li>Software Defined Networks / Cloud<br> Networking / Data Centre <br>Networking</li>
                                 <li>5G Connectivity for Smart Cities</li>
                                 <li>Green Communication Networks</li>
                                 <li>Telecommunication for Disaster Resilience</li>
                                 <li>Accessible Communication Devices</li>
-                                <li>Digital Inclusion through Affordable Technologies</li>
+                                <li>Digital Inclusion through Affordable<br> Technologies</li>
                             </ul>
                         </div>
                     </div>
                 </div>
- 
-    
-                
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
-                            <h3 class="card-title text-primary">Contemporary Technologies</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Contemporary Technologies</h4>
                             <ul class="card-text text-dark">
                                 <li>Quantum Inspired Computational Intelligence</li>
                                 <li>Blockchain Technology/Distributed Ledger Technology in Diversified Applications</li>
@@ -604,7 +730,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
-                            <h3 class="card-title text-primary">Internet of Things (IoT) and Smart Systems</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Internet of Things (IoT) and Smart Systems</h4>
                             <ul class="card-text text-dark">
                                 <li>Smart Grids for Energy Management</li>
                                 <li>Smart Systems for Traffic Management</li>
@@ -620,14 +746,14 @@
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
-                            <h3 class="card-title text-primary">Security and Privacy</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Security and Privacy</h4>
                             <ul class="card-text text-dark">
                                 <li>Network Security and Data Security</li>
                                 <li>Cybersecurity Applications</li>
                                 <li>Data Privacy in Green Energy Solutions</li>
                                 <li>Cybersecurity for Supply Chains</li>
                                 <li>Protecting IoT Networks in Environmental Monitoring</li>
-                                <li>Threat Detection in Eco-Friendly Technologies</li>
+                                <li>Threat Detection in Eco-Friendly <br>Technologies</li>
                                 <li>Data Protection in Financial Systems</li>
                             </ul>
                         </div>
@@ -637,7 +763,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
-                            <h3 class="card-title text-primary">Big Data Analytics and Cloud Computing</h3>
+                            <h4 class="card-title custom-blue text-white p-2 rounded">Big Data Analytics and Cloud Computing</h4>
                             <ul class="card-text text-dark">
                                 <li>Data -Driven Health Analytics/Environment Analytics</li>
                                 <li>Cloud Solutions for Education Equity</li>
@@ -650,14 +776,10 @@
                         </div>
                     </div>
                 </div>
-    
-                
             </div>  <!-- SINGLE ROW END -->
         </div>
     </section>
-    
-    
-    
+
     <section id="collaborators" class="section collaborators-section text-center">
         <h2>Collaborators</h2>
         <p>Our collaborators...</p>
@@ -668,11 +790,8 @@
             <div class="row align-items-center">
                 <!-- Image on Left -->
                 <div class="col-md-6 text-center">
-                    <img src="/Images/bacground.jpeg" alt="Conference Image" class="about-image img-fluid">
-                </div>
-                <!-- Text on Right -->
-                <div class="col-md-6">
-                    <h2>About The College</h2>
+                    <h2 style="text-align: left;">About the College</h2><br>
+                    <img src="Images/gne_front.jpg" alt="Conference Image" class="about-image img-fluid"><br>
                     <p>
                         Guru Nanak Dev Engineering College, Ludhiana (Punjab), established in 1956 is one of the oldest and a 
                         premier Engineering Institution of India. It is an Autonomous Institute under UGC Act - 1956 [2(f) and 
@@ -683,6 +802,22 @@
                         QIP centre for Ph.D. All the undergraduate courses of the institute are accredited by National Board of 
                         Accreditation (NBA), AICTE, New Delhi.
                     </p>
+                    <a href="https://gndec.ac.in" class="about-btn">Explore More</a><br>
+                </div>
+                <!-- Text on Right -->
+                <div class="col-md-6 text-center">
+                    <h2 style="text-align: left;">About the Department</h2><br>
+                    <img src="Images/bacground.jpeg" alt="Conference Image" class="about-image img-fluid"><br>
+                    <p>
+                        Department of Computer Science and Engineering was established in year 1997. Department is offering B.Tech.
+                        and M.Tech. programs in Computer Science and Engineering. Laboratories of the department are equipped with
+                        state of the art infrastructure to cater course work and research activities. A Good number of books is 
+                        available in departmental library for prompt access to students and faculty members. Under academic autonomy,
+                        study schemes of the offered programs are updated regularly focusing outcome based education, to make students
+                        employable as per national and international requirements. Graduates of the department are serving around the 
+                        globe in eminent companies, academic, as well as in public sector. 
+                    </p>
+                    <a href="https://cse.gndec.ac.in/" class="about-btn">Explore More</a><br>
                 </div>
             </div>
         </div>
@@ -717,22 +852,21 @@
         <p>&copy; 2025 ICCT-SD | GNDEC</p>
     </footer>
     <script>
-        // Show button when scrolling down
+        // Show the button when scrolling down
         window.onscroll = function () {
-            let scrollBtn = document.getElementById("scrollBtn");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
+          var scrollButton = document.getElementById("scrollUpBtn");
+          if (document.documentElement.scrollTop > 200) {
+            scrollButton.style.display = "block";
+          } else {
+            scrollButton.style.display = "none";
+          }
         };
-    
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-    </script>
+      
+        // Scroll to the top when clicked
+        document.getElementById("scrollUpBtn").addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
